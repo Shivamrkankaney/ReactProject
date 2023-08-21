@@ -1,4 +1,4 @@
-import { HeaderComponenent } from "./header";
+
 import BasicExample from "./header2";
 import { MainComponent } from "./main";
 

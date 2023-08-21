@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+ <title>todo list</title>
+ <link rel="stylesheet"
+href="../node_modules/bootstrap/dist/css/bootstrap.css">
+ <script>
+ var cities = ["Delhi", "Hyd"];
+ function LoadCities(){
+ document.getElementById("lstCities").innerHTML ="";
+ for(var city of cities){
+ var option = document.createElement("option");
+ option.text = city;
+
+document.getElementById("lstCities").appendChild(option);
+ }
+ }
+ function bodyload(){
+ LoadCities();
+ }
+ function AddClick(){
+ var cityname =
+document.getElementById("txtCity").value;
+ var cityIndex = cities.indexOf(cityname);
+ if(cityIndex==-1) {
+ cities.push(cityname);
+ alert(`${cityname} Added to List`);
+ LoadCities();
+ document.getElementById("txtCity").value = "";
+ } else {
+ alert("City Exists - Try Another");
+ }
+ }
+ function RemoveClick(){
+ var selectedCityName =
+document.getElementById("lstCities").value;
+ var selectedCityIndex =
+cities.indexOf(selectedCityName);
+ alert(`${cities.splice(selectedCityIndex,1)} Removed`);
+ LoadCities();
+ }
+ function SortAsc(){
+ cities.sort();
+ LoadCities();
+ }
+
+ </script>
+ </head>
+ <body class="container-fluid" onload="bodyload()">
+ <h2>To-do List</h2>
+ <div class="row">
+ <div class="col-3">
+ <fieldset>
+ <legend >Add New City </legend>
+ <div class="input-group">
+ <input type="text" id="txtCity" class="formcontrol">
+ <button onclick="AddClick()" class="btn btnprimary">Add</button>
+ </div>
+ </fieldset>
+ </div>
+ <div class="col-9">
+ <h3>Names List</h3>
+ <div class="input-group">
+ <ul class="form-select" id="lstCities">
+ </ul>
+ <button onclick="RemoveClick()" class="btn btndanger">Remove Name</button>
+ <span> <input type="search" id="schCity" class="formcontrol">
+ <button onclick="SortAsc()" class="btn btninfo">Search</button></span>
+
+ </div>
+ </div>
+ </div>
+ </body>
+</html>

@@ -44,12 +44,10 @@ function BasicExample() {
           </Nav>
           <div>
         <form className="d-flex">
-
 <ul className="navbar-nav me-4 mb-2 mb-lg-0">
   <li className="nav-item">
     <a className="nav-link active text-white me-4" aria-current="page" href="home">Login</a>
   </li>
-
 <button className="btn btn-outline-success" type="submit">SignUp</button>
 </ul>
 </form>
@@ -61,5 +59,4 @@ function BasicExample() {
     </Navbar>
   );
 }
-
 export default BasicExample;

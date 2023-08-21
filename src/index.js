@@ -3,14 +3,18 @@ import ReactDOM from 'react-dom/client';
 import'../node_modules/bootstrap/dist/css/bootstrap.css';
 import'../node_modules/bootstrap-icons/font/bootstrap-icons.css';
 import './index.css';
-import App from './App';
+
 import reportWebVitals from './reportWebVitals';
-import { IndexComponent } from './project1';
+
+import { Aapp } from './reacttodo/app';
+import { List } from './Todo_final/List';
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <IndexComponent />
+    <List/>
   </React.StrictMode>
 );
 
