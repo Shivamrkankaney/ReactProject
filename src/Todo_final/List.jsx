@@ -11,23 +11,23 @@ export function List(){
     const [editedName, setEditedName] = useState('');
     const [items ,setItems] = useState([]);
 
-    const addName = () => {
+    function addName()  {
         if (newName.trim() === '') return;
         setName([...Name, { text: newName, isEditing: false }]);
         localStorage.setItem('items', JSON.stringify(Name));
 
         setNewName('');
     };
-    const deleteName = (index) => {
+    function deleteName(index){
         const updatedTodos = Name.filter((_, i) => i !== index);
         setName(updatedTodos);
       };
 
-      const NameEdit = (index) => {
+      function NameEdit(index){
         setEditingIndex(index);
         setEditedName(Name[index].text);
       };
-      const saveEdit = (index) => {
+      function saveEdit(index){
         const updatedName = [...Name];
         updatedName[index].text = editedName;
         updatedName[index].isEditing = false;
@@ -70,21 +70,12 @@ export function List(){
                     value={editedName}
                     onChange={(e) => setEditedName(e.target.value)}
                   />
-                  <button onClick={() => saveEdit(index)}>Save</button>
+                  <Button onClick={() => saveEdit(index)}>Save</Button>
                 </>
               ) : (
                 <>
 
-                  {todo.text}{items.text}
-
-                {/* {items ? (
-            items.map((item, index) => (
-            <li key={index}>{item.text}</li>
-            ))
-        ) : (
-            <li>No items available</li>
-        )} */}
-
+                  {todo.text}
 
 
                   <Button style={{margin:'10px'}} onClick={() => NameEdit(index)}>Update</Button>
